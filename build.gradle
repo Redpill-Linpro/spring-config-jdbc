@@ -1,0 +1,33 @@
+apply plugin: 'java'
+
+description = 'A PropertyPlaceholderConfigurer that loads properties from a JDBC datasource'
+
+compileJava {
+        sourceCompatibility=1.6
+        targetCompatibility=1.6
+}
+
+compileTestJava {
+        sourceCompatibility=1.7
+        targetCompatibility=1.7
+}
+
+// Product versions
+ext {
+  springVersion='3.2.+'
+  junitVersion='4.+'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.springframework:spring-beans:${springVersion}"
+//    compile "org.springframework:spring-context:${springVersion}"
+//    compile "org.springframework:spring-aop:${springVersion}"
+    compile "org.springframework:spring-jdbc:${springVersion}"
+    testCompile "org.springframework:spring-test:${springVersion}"
+    testCompile "hsqldb:hsqldb:1.8.+"
+    testCompile "junit:junit:${junitVersion}"
+}
